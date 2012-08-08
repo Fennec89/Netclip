@@ -4,7 +4,7 @@ from socket import *
 import time
 import sys
 
-HOST = 'localhost'
+HOST = sys.argv[2]
 PORT = 29600
 ADDR = (HOST,PORT)
 BUFSIZE = 4096
@@ -17,7 +17,7 @@ for i in range(0,4):
     MESSAGE[1] = MESSAGE[1]+str(i)
     print MESSAGE
     cli.send(repr(MESSAGE))
-    time.sleep(2)
+    time.sleep(1)
 time.sleep(2)
 cli.send(repr(MSG))
 data = eval(cli.recv(BUFSIZE))
